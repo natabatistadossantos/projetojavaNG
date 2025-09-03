@@ -17,7 +17,7 @@ public class Veiculo {
         this.disponivel = disponivel;
     }
 
-    // Getters (opcional, mas útil para acessar os dados)
+    // getters e setters
     public String getPlaca() {
         return placa;
     }
