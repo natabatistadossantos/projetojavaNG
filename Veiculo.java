@@ -37,4 +37,12 @@ public class Veiculo {
     public boolean isDisponivel() {
         return disponivel;
     }
+
+    public void exibirdetalhes() {
+        System.out.println("Placa: " + placa);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Ano: " + ano);
+        System.out.println("Preço Diária:" + precoDiaria);
+        System.out.println("Disponível: " + disponivel);
+    }
 }
