@@ -41,9 +41,6 @@ public class GerenciadorAluguel implements IAluguel {
                 System.out.println("ID: " + aluguel.getId());
                 System.out.println("Cliente: " + aluguel.getCliente().getNome());
                 System.out.println("Veículo: " + aluguel.getVeiculo().getModelo());
-                System.out.println("Data Retirada: " + aluguel.getDataRetirada());
-                System.out.println("Data Devolução: " + aluguel.getDataDevolucao());
-                System.out.println("Valor Total: R$ " + aluguel.getValorTotal());
             }
         }
     }
