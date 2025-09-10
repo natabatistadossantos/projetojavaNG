@@ -38,11 +38,5 @@ public abstract class Veiculo {
         return disponivel;
     }
 
-    public abstract void exibirDetalhes() {
-        System.out.println("Placa: " + placa);
-        System.out.println("Modelo: " + modelo);
-        System.out.println("Ano: " + ano);
-        System.out.println("Preço Diária:" + precoDiaria);
-        System.out.println("Disponível: " + disponivel);
-    }
+    public abstract void exibirDetalhes();
 }

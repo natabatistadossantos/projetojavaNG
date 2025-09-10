@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class GerenciadorAluguel implements IAluguel {
+public class GerenciadorAluguel implements IAluguel{
 
     private List<Aluguel> alugueis;
 

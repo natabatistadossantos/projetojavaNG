@@ -1,16 +1,17 @@
-public class Aluguel { private int id;
+public class Aluguel { 
+    private int id;
     private Cliente cliente;
     private Veiculo veiculo;
     private int diasAlugados;
-    private double valortotal;
+    private double valorTotal;
 
     //construtor 
-    public Aluguel(int id, Cliente cliente, Veiculo veiculo, int diasAlugados, double valortotal){
+    public Aluguel(int id, Cliente cliente, Veiculo veiculo, int diasAlugados, double valorTotal){
         this.id = id;
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.diasAlugados = diasAlugados;
-        this.valortotal = valortotal;
+        this.valorTotal = valorTotal;
     }
 
     //getters e setters
@@ -22,6 +23,8 @@ public class Aluguel { private int id;
     public void setVeiculo(Veiculo veiculo){this.veiculo=veiculo;}
     public int getDiasAlugados(){return diasAlugados;}
     public void setDiasAlugados(int diasAlugados){this.diasAlugados=diasAlugados;}
+    public double getValorTotal() {return valorTotal;}
+    public void setValorTotal(double valorTotal) {this.valorTotal = valorTotal; }
 
     public double calcularValorTotal(){
         return diasAlugados*veiculo.getPrecoDiaria();
