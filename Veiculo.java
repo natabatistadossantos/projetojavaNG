@@ -1,5 +1,5 @@
 
-public class Veiculo {
+public abstract class Veiculo {
 
     // Atributos privados
     private String placa;
@@ -38,7 +38,7 @@ public class Veiculo {
         return disponivel;
     }
 
-    public void exibirdetalhes() {
+    public abstract void exibirDetalhes() {
         System.out.println("Placa: " + placa);
         System.out.println("Modelo: " + modelo);
         System.out.println("Ano: " + ano);

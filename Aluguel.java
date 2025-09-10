@@ -10,7 +10,7 @@ public class Aluguel { private int id;
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.diasAlugados = diasAlugados;
-        this.valortotal = calcularValorTotal();
+        this.valortotal = valortotal;
     }
 
     //getters e setters
@@ -24,7 +24,7 @@ public class Aluguel { private int id;
     public void setDiasAlugados(int diasAlugados){this.diasAlugados=diasAlugados;}
 
     public double calcularValorTotal(){
-        return diasAlugados* Veiculo.getPrecoDiaria();
+        return diasAlugados*veiculo.getPrecoDiaria();
     }
 
     

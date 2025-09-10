@@ -13,8 +13,8 @@ public class Caminhao extends Veiculo {
         public void setCapacidadeCarga(double capacidadeCarga){this.capacidadeCarga=capacidadeCarga;}
 
         //metodo exibir do veiculo customizado para o caminhão
-        @override
-        public void exibirdetalhes(){
+        @Override
+        public void exibirDetalhes(){
         System.out.println("Placa Caminhão: " + getPlaca());
         System.out.println("Modelo: " + getModelo());
         System.out.println("Ano: " + getAno());

@@ -17,8 +17,8 @@ private int numeroPortas;
     }
 
     //metodo exibir do veiculo mais customizado para o carro
-    @override
-    public void exibirdetalhes() {
+    @Override
+    public void exibirDetalhes() {
         System.out.println("Placa carro " + getPlaca());
         System.out.println("Modelo: " + getModelo());
         System.out.println("Ano: " + getAno());

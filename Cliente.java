@@ -11,7 +11,7 @@ public class Cliente {
     // getters e setters para os atributos da classe cliente 
     public String getCpf(){return cpf;}
     public void setCpf(String cpf){this.cpf=cpf;}
-    public String getNome(){retun nome;}
+    public String getNome(){return nome;}
     public void setNome(String nome){this.nome=nome;}
     public String getCnh(){return cnh;}
     public void setCnh(String cnh){this.cnh=cnh;}
