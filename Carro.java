@@ -16,8 +16,15 @@ private int numeroPortas;
         
     }
 
+    //metodo exibir do veiculo mais customizado para o carro
+    @override
     public void exibirdetalhes() {
-        
+        System.out.println("Placa carro " + getPlaca());
+        System.out.println("Modelo: " + getModelo());
+        System.out.println("Ano: " + getAno());
+        System.out.println("Preço Diária:" + getPrecoDiaria());
+        System.out.println("Disponível: " + isDisponivel());
+        System.out.println("Numero de portas:"+ numeroPortas);
     }
 
 
