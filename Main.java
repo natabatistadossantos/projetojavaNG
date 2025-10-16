@@ -1,3 +1,12 @@
+import model.Aluguel;
+import model.Carro;
+import model.Cliente;
+import model.Caminhao;
+import model.GerenciadorAluguel;
+import model.IAluguel;
+import model.Veiculo;
+
+
 public class Main {
     public static void main(String[] args) {
         // Criando cliente
