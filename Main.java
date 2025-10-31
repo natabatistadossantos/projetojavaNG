@@ -48,7 +48,7 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
         String cnh = sc.nextLine();
 
         Cliente cliente = new Cliente(cpf, nome, cnh);
-        System.out.println("Cliente cadastrado com sucesso!");
+        System.out.println("Cliente cadastrado");
     }
 
     private static void cadastrarVeiculo() {
@@ -62,8 +62,6 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
     String modelo = sc.nextLine();
     System.out.print("Ano: ");
     int ano = sc.nextInt();
-    System.out.print("Preço diária: ");
-    double preco = sc.nextDouble();
     sc.nextLine();
 
     switch(tipo) {
@@ -71,31 +69,31 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
             System.out.print("Número de portas: ");
             int portas = sc.nextInt();
             sc.nextLine();
-            veiculoCadastrado = new Carro(placa, modelo, ano, preco, true, portas);
+            veiculoCadastrado = new Carro(placa, modelo, ano, true, portas);
             break;
         case 2:
             System.out.print("Capacidade de carga (kg): ");
             double carga = sc.nextDouble();
             sc.nextLine();
-            veiculoCadastrado = new Caminhao(placa, modelo, ano, preco, true, carga);
+            veiculoCadastrado = new Caminhao(placa, modelo, ano, true, carga);
             break;
         case 3:
-            System.out.print("Cilindradas da moto: ");
+            System.out.print("Cilindradas: ");
             int cilindradas = sc.nextInt();
             sc.nextLine();
-            veiculoCadastrado = new Moto(placa, modelo, ano, preco, true, cilindradas);
+            veiculoCadastrado = new Moto(placa, modelo, ano, true, cilindradas);
             break;
         default:
             System.out.println("Tipo inválido!");
             return;
     }
-    System.out.println("Veículo cadastrado com sucesso!");
+    System.out.println("Veículo cadastrado");
 }
 
 
     private static void cadastrarAluguel() {
         if (veiculoCadastrado == null) {
-            System.out.println("Nenhum veículo cadastrado. Cadastre um veículo primeiro!");
+            System.out.println("Erro: Cadastre um veículo");
             return;
         }
 
@@ -117,7 +115,7 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
         aluguel.setValorTotal(aluguel.calcularValorTotal());
         gerenciador.adicionarAluguel(aluguel);
 
-        System.out.println("Aluguel cadastrado com sucesso!");
+        System.out.println("Aluguel cadastrado");
     }
 
     // arquivo txt 
@@ -142,33 +140,54 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
         }
     }
 
-    private static void carregarArquivo() {
-        File f = new File(ARQUIVO);
-        if (!f.exists()) return;
+   private static void carregarArquivo() {
+    File f = new File(ARQUIVO);
+    if (!f.exists()) return;
 
-        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
-            String linha;
-            while ((linha = br.readLine()) != null) {
-                String[] dados = linha.split(";");
-                int id = Integer.parseInt(dados[0]);
-                String nome = dados[1];
-                String cpf = dados[2];
-                String cnh = dados[3];
-                String modelo = dados[4];
-                String placa = dados[5];
-                double preco = Double.parseDouble(dados[6]);
-                int dias = Integer.parseInt(dados[7]);
-                double valor = Double.parseDouble(dados[8]);
+    try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+        String linha;
+        while ((linha = br.readLine()) != null) {
+            String[] dados = linha.split(";");
 
-                Cliente cliente = new Cliente(cpf, nome, cnh);
-                Veiculo veiculo = new Carro(placa, modelo, 2020, preco, true, 4); // simplificação
-                Aluguel aluguel = new Aluguel(id, cliente, veiculo, dias, valor);
-                gerenciador.adicionarAluguel(aluguel);
-                veiculoCadastrado = veiculo; // último veículo carregado
+            int id = Integer.parseInt(dados[0]);
+            String nome = dados[1];
+            String cpf = dados[2];
+            String cnh = dados[3];
+            String tipo = dados[4];      
+            String modelo = dados[5];
+            String placa = dados[6];
+            int ano = Integer.parseInt(dados[7]);
+            int dias = Integer.parseInt(dados[8]);
+            double valor = Double.parseDouble(dados[9]);
+
+            Cliente cliente = new Cliente(cpf, nome, cnh);
+            Veiculo veiculo;
+
+            switch(tipo) {
+                case "Carro":
+                    int portas = 4; 
+                    veiculo = new Carro(placa, modelo, ano, true, portas);
+                    break;
+                case "Caminhao":
+                    double carga = 1000; 
+                    veiculo = new Caminhao(placa, modelo, ano, true, carga);
+                    break;
+                case "Moto":
+                    int cilindradas = 150;
+                    veiculo = new Moto(placa, modelo, ano, true, cilindradas);
+                    break;
+                default:
+                    veiculo = new Carro(placa, modelo, ano, true, 4);
             }
-            System.out.println("Dados carregados do arquivo '" + ARQUIVO + "' com sucesso!");
-        } catch (IOException e) {
-            System.out.println("Erro ao carregar arquivo: " + e.getMessage());
+
+            Aluguel aluguel = new Aluguel(id, cliente, veiculo, dias, valor);
+            gerenciador.adicionarAluguel(aluguel);
+            veiculoCadastrado = veiculo;
         }
+        System.out.println("Dados carregados do arquivo '" + ARQUIVO + "' com sucesso!");
+    } catch (IOException e) {
+        System.out.println("Erro ao carregar arquivo: " + e.getMessage());
     }
+}
+
 }
