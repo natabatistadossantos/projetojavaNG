@@ -4,15 +4,15 @@ public class Caminhao extends Veiculo {
 
         public Caminhao(String placa, String modelo, int ano, double precoDiaria, boolean disponivel, double capacidadeCarga) {
                 
-                super(placa, modelo, ano, precoDiaria, disponivel);
+                super(placa, modelo, ano, 300, disponivel);
                 this.capacidadeCarga = capacidadeCarga;
             }
         
-        // getters e setters da capacidade de carga 
+        
         public double getCapacidadeCarga(){return capacidadeCarga;}
         public void setCapacidadeCarga(double capacidadeCarga){this.capacidadeCarga=capacidadeCarga;}
 
-        //metodo exibir do veiculo customizado para o caminhão
+        
         @Override
         public void exibirDetalhes(){
         System.out.println("Placa Caminhão: " + getPlaca());

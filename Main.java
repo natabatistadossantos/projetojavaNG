@@ -8,7 +8,7 @@ private static GerenciadorAluguel gerenciador = new GerenciadorAluguel();
 private static final String ARQUIVO = "arquivotxt\\dados.txt";
 
 
-    // Último veículo cadastrado (para simplificar cadastro de aluguel)
+    
     private static Veiculo veiculoCadastrado;
 
     public static void main(String[] args) {
@@ -16,33 +16,28 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
 
         int opcao;
         do {
-            System.out.println("\n=== SISTEMA DE LOCAÇÃO DE VEÍCULOS ===");
+            System.out.println("\n Locadora de Veiculos");
             System.out.println("1 - Cadastrar Cliente");
             System.out.println("2 - Cadastrar Veículo");
-            System.out.println("3 - Cadastrar Aluguel");
-            System.out.println("4 - Listar Aluguéis");
-            System.out.println("5 - Buscar Aluguel por ID");
+            System.out.println("3 - Aluguel");
+            System.out.println("4 - Listar Aluguel");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opção: ");
             opcao = sc.nextInt();
-            sc.nextLine(); // limpar buffer
+            sc.nextLine();
 
             switch(opcao) {
                 case 1: cadastrarCliente(); break;
                 case 2: cadastrarVeiculo(); break;
                 case 3: cadastrarAluguel(); break;
                 case 4: gerenciador.listarAlugueis(); break;
-                case 5: buscarAluguel(); break;
                 case 0:
                     salvarArquivo();
-                    System.out.println("Saindo do sistema. Até logo!");
                     break;
-                default: System.out.println("Opção inválida!");
+                default: System.out.println("Opção inválida");
             }
         } while(opcao != 0);
     }
-
-    // ------------------- Funções de Cadastro -------------------
 
     private static void cadastrarCliente() {
         System.out.print("Nome do Cliente: ");
@@ -57,7 +52,7 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
     }
 
     private static void cadastrarVeiculo() {
-    System.out.println("Tipo de veículo: 1 - Carro  |  2 - Caminhão  |  3 - Moto");
+    System.out.println("Tipo de veículo: 1 - Carro    2 - Caminhão   3 - Moto");
     int tipo = sc.nextInt();
     sc.nextLine();
 
@@ -69,7 +64,7 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
     int ano = sc.nextInt();
     System.out.print("Preço diária: ");
     double preco = sc.nextDouble();
-    sc.nextLine(); // limpar buffer
+    sc.nextLine();
 
     switch(tipo) {
         case 1:
@@ -125,24 +120,8 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
         System.out.println("Aluguel cadastrado com sucesso!");
     }
 
-    private static void buscarAluguel() {
-        System.out.print("Digite o ID do aluguel: ");
-        int id = sc.nextInt();
-        sc.nextLine();
-        Aluguel a = gerenciador.buscarAluguelPorId(id);
-        if (a != null) {
-            System.out.println("\n--- Detalhes do Aluguel ---");
-            System.out.println("Cliente: " + a.getCliente().getNome());
-            System.out.println("CPF: " + a.getCliente().getCpf());
-            System.out.println("Veículo: " + a.getVeiculo().getModelo());
-            System.out.println("Placa: " + a.getVeiculo().getPlaca());
-            System.out.println("Dias alugados: " + a.getDiasAlugados());
-            System.out.println("Valor total: R$ " + a.getValorTotal());
-        }
-    }
-
-    // ------------------- Persistência em arquivo -------------------
-
+    // arquivo txt 
+    
     private static void salvarArquivo() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
             for (Aluguel a : gerenciador.getAlugueis()) {

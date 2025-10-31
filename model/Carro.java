@@ -4,7 +4,7 @@ private int numeroPortas;
 
     public Carro(String placa, String modelo, int ano, double precoDiaria, boolean disponivel, int numeroPortas){
 
-        super(placa, modelo, ano, precoDiaria, disponivel );
+        super(placa, modelo, ano, 150, disponivel );
         this.numeroPortas = numeroPortas;
     }
 

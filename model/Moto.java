@@ -5,7 +5,7 @@ public class Moto extends Veiculo {
 
     // Construtor
     public Moto(String placa, String modelo, int ano, double precoDiaria, boolean disponivel, int cilindradas) {
-        super(placa, modelo, ano, precoDiaria, disponivel);
+        super(placa, modelo, ano, 50, disponivel);
         this.cilindradas = cilindradas;
     }
 
