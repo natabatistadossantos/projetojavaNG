@@ -1,3 +1,4 @@
+package model;
 public class Aluguel { 
     private int id;
     private Cliente cliente;

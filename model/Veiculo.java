@@ -1,4 +1,4 @@
-
+package model;
 public abstract class Veiculo {
 
     // Atributos privados
