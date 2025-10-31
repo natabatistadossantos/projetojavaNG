@@ -3,9 +3,10 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    private static Scanner sc = new Scanner(System.in);
-    private static GerenciadorAluguel gerenciador = new GerenciadorAluguel();
-    private static final String ARQUIVO = "dados.txt";
+private static Scanner sc = new Scanner(System.in);
+private static GerenciadorAluguel gerenciador = new GerenciadorAluguel();
+private static final String ARQUIVO = "arquivotxt\\dados.txt";
+
 
     // Último veículo cadastrado (para simplificar cadastro de aluguel)
     private static Veiculo veiculoCadastrado;
