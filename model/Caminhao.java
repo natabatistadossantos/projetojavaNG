@@ -4,7 +4,7 @@ public class Caminhao extends Veiculo {
 
         public Caminhao(String placa, String modelo, int ano, double precoDiaria, boolean disponivel, double capacidadeCarga) {
                 
-                super(placa, modelo, ano, 300, disponivel);
+                super(placa, modelo, ano, precoDiaria, disponivel);
                 this.capacidadeCarga = capacidadeCarga;
             }
         
