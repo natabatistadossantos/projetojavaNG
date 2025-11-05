@@ -8,7 +8,7 @@ private static GerenciadorAluguel gerenciador = new GerenciadorAluguel();
 private static final String ARQUIVO = "arquivotxt\\dados.txt";
 
 
-    
+    //menuzeira
     private static Veiculo veiculoCadastrado;
 
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
             }
         } while(opcao != 0);
     }
-
+    //cadastro cliente
     private static void cadastrarCliente() {
         System.out.print("Nome do Cliente: ");
         String nome = sc.nextLine();
@@ -50,7 +50,7 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
         Cliente cliente = new Cliente(cpf, nome, cnh);
         System.out.println("Cliente cadastrado");
     }
-
+    //cadastro veículo 
     private static void cadastrarVeiculo() {
     System.out.println("Tipo de veículo: 1 - Carro    2 - Caminhão   3 - Moto");
     int tipo = sc.nextInt();
