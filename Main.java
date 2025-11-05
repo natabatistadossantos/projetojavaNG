@@ -119,7 +119,7 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
     }
 
     // arquivo txt 
-    
+    //salvar info no txt
     private static void salvarArquivo() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
             for (Aluguel a : gerenciador.getAlugueis()) {
@@ -139,7 +139,7 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
             System.out.println("Erro ao salvar arquivo: " + e.getMessage());
         }
     }
-
+    //ler txt
    private static void carregarArquivo() {
     File f = new File(ARQUIVO);
     if (!f.exists()) return;
