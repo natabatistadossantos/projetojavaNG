@@ -64,6 +64,7 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
     int ano = sc.nextInt();
     sc.nextLine();
 
+        //switch para diferenciação nos veículos
     switch(tipo) {
         case 1:
             System.out.print("Número de portas: ");
@@ -90,7 +91,7 @@ private static final String ARQUIVO = "arquivotxt\\dados.txt";
     System.out.println("Veículo cadastrado");
 }
 
-
+    // cadastro de aluguel
     private static void cadastrarAluguel() {
         if (veiculoCadastrado == null) {
             System.out.println("Erro: Cadastre um veículo");
